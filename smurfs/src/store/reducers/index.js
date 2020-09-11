@@ -31,10 +31,11 @@ export default ( state = initialState, action ) => {
                 loadingSmurfs: false
             };
         case ADD_SMURF:
-            console.log(state, state.smurfs)
+            console.log('hey', state)
             return { 
                 ...state, 
                 smurfs: [ ...state.smurfs, action.payload ]};
+                
         default:
             return state;
     };

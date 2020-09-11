@@ -30,7 +30,8 @@ export const addSmurf = data => {
         axios
             .post("http://localhost:3333/smurfs", data)
             .then( () => {
-                return { type: ADD_SMURF, payload: data }
+                data.id=!data.id;
+                dispatch({type: ADD_SMURF, payload: data}) 
             })
             .catch( error => {
                 console.log( error )
