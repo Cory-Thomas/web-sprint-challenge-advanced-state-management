@@ -1,5 +1,6 @@
 import axios from "axios";
 
+export const ADD_SMURF = "ADD_SMURF";
 export const FETCH_SMURFS = "FETCH_SMURFS";
 export const FETCH_SMURFS_SUCCESS = "FETCH_SMURFS_SUCCESS";
 export const FETCH_SMURFS_ERROR = "FETCH_SMURFS_ERROR";
@@ -21,4 +22,18 @@ export const fetchSmurfs = () => {
          });
     });
     };
+};
+
+export const addSmurf = data => {
+    return ( dispatch ) => {
+       
+        axios
+            .post("http://localhost:3333/smurfs", data)
+            .then( () => {
+                return { type: ADD_SMURF, payload: data }
+            })
+            .catch( error => {
+                console.log( error )
+            });
+    }
 };
